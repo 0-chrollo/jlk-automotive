@@ -7,6 +7,238 @@
 </head>
 <body>
 
+        <style>
+            * {
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+            }
+    
+            body {
+                font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+                background: linear-gradient(200deg, rgba(49, 51, 80, 0.847) 25%, rgba(11, 11, 35, 0.95) 90%);
+                min-height: 100vh;
+            }
+    
+            /* Navbar Styles */
+            nav {
+                position: fixed;
+                top: 0;
+                width: 100%;
+                background-color:rgba(25, 29, 68, 0.916);
+                backdrop-filter: blur(10px);
+                box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+                z-index: 1000;
+            }
+    
+            .nav-container {
+                max-width: 1200px;
+                margin: 0 auto;
+                padding: 0rem 1.5rem;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+            }
+    
+            .logo {
+                display: flex;
+                align-items: center;
+                text-decoration: none;
+            }
+    
+            .logo img {
+                height: 100px;
+                width: auto;
+               
+            }
+    
+            .nav-menu {
+                display: flex;
+                list-style: none;
+                gap: 2rem;
+            }
+    
+            
+            .nav-menu li a {
+                text-decoration: none;
+                color: #fff;
+                font-weight: 500;
+                transition: color 0.3s ease;
+                position: relative;
+            }
+    
+            .nav-menu li a::after {
+                content: '';
+                position: absolute;
+                bottom: -5px;
+                left: 0;
+                width: 0;
+                height: 2px;
+                background: #667eea;
+                transition: width 0.3s ease;
+            }
+    
+            .nav-menu li a:hover {
+                color: #667eea;
+            }
+    
+            .nav-menu li a:hover::after {
+                width: 100%;
+            }
+    
+            /* Burger Menu */
+            .burger {
+                display: none;
+                flex-direction: column;
+                cursor: pointer;
+                gap: 5px;
+            }
+    
+            .burger span {
+                width: 25px;
+                height: 3px;
+                background: #ffffff;
+                border-radius: 0px;
+                transition: all 0.3s ease;
+            }
+    
+            /* Burger Animation */
+            .burger.active span:nth-child(1) {
+                transform: rotate(45deg) translate(8px, 8px);
+            }
+    
+            .burger.active span:nth-child(2) {
+                opacity: 0;
+            }
+    
+            .burger.active span:nth-child(3) {
+                transform: rotate(-45deg) translate(7px, -7px);
+            }
+    
+            /* Content */
+            .content {
+                padding-top: 100px;
+                max-width: 1200px;
+                margin: 0 auto;
+                padding-left: 2rem;
+                padding-right: 2rem;
+                color: white;
+            }
+    
+            .content h1 {
+                font-size: 3rem;
+                margin-bottom: 1rem;
+            }
+    
+            .content p {
+                font-size: 1.2rem;
+                line-height: 1.6;
+            }
+    
+            /* Mobile Styles */
+            @media (max-width: 768px) {
+                .burger {
+                    display: flex;
+                }
+    
+                .nav-menu {
+                    color: #fff;
+                    position: fixed;
+                    left: 0;
+                    top: 70px;
+                    flex-direction: column;
+                    background:rgba(25, 29, 68, 0.996);
+                    width: 100%;
+                    text-align: center;
+                    gap: 0;
+                    max-height: 0;
+                    overflow: hidden;
+                    transition: max-height 0.4s ease-in-out;
+                    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+                }
+    
+                .nav-menu.active {
+                    max-height: 400px;
+                }
+    
+                .nav-menu li {
+                    color: #fff;
+                    padding: 1.5rem 0;
+                    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+                }
+    
+                .nav-menu li a::after {
+                    display: none;
+
+                }
+    
+                .content h1 {
+                    font-size: 2rem;
+                    color: #fff;
+                }
+    
+                .content p {
+                    font-size: 1rem;
+                    color: #fff;
+                }
+            }
+        </style>
+
+        <nav>
+            <div class="nav-container">
+                <a href="#" class="logo">
+                    <img src="logo.png" alt="Logo">
+                </a>
+                <ul class="nav-menu">
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#portfolio">Portfolio</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+                <div class="burger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        </nav>
+    
+    
+        <script>
+            const burger = document.querySelector('.burger');
+            const navMenu = document.querySelector('.nav-menu');
+            const navLinks = document.querySelectorAll('.nav-menu li a');
+    
+            // Toggle menu
+            burger.addEventListener('click', () => {
+                burger.classList.toggle('active');
+                navMenu.classList.toggle('active');
+            });
+    
+            // Close menu when clicking on a link
+            navLinks.forEach(link => {
+                link.addEventListener('click', () => {
+                    burger.classList.remove('active');
+                    navMenu.classList.remove('active');
+                });
+            });
+    
+            // Close menu when clicking outside
+            document.addEventListener('click', (e) => {
+                if (!burger.contains(e.target) && !navMenu.contains(e.target)) {
+                    burger.classList.remove('active');
+                    navMenu.classList.remove('active');
+                }
+            });
+        </script>
+
+
+
+
+
+
+
             <style>
                 * {
                     margin: 0;
@@ -49,7 +281,7 @@
                     left: 0;
                     width: 100%;
                     height: 100%;
-                    background: linear-gradient(rgba(1, 16, 40, 0.779), rgba(0, 0, 0, 0.5));
+                    background: linear-gradient(rgba(39, 52, 69, 0.917), rgba(12, 22, 38, 0.629));
                     z-index: 2;
                 }
         
@@ -100,7 +332,7 @@
                 }
         
                 .highlight {
-                    color: #5a9fd0;
+                    color: rgb(57, 69, 179);
                 }
         
                 .slide p {
@@ -124,14 +356,14 @@
         
                 .indicator {
                     width: 40px;
-                    height: 4px;
-                    background: rgba(255,255,255,0.3);
+                    height: 5px;
+                    background: rgba(255, 255, 255, 0.662);
                     cursor: pointer;
                     transition: all 0.3s ease;
                 }
         
                 .indicator.active {
-                    background: #396280;
+                    background:rgb(37, 43, 98);
                     width: 60px;
                 }
         
@@ -189,7 +421,6 @@
                     <div class="slide active">
                         <h1>Expert & Reliable <span class="highlight">Tree Care Services</span></h1>
                         <p>From professional tree felling to precise trimming, we ensure your outdoor space remains safe and beautiful.</p>
-
                     </div>
                     
                     <!-- Slide 2 -->
@@ -206,11 +437,11 @@
         <BR>
                     <style>
             .glass-button {
-                background: rgba(134, 169, 239, 0.2); /* Glass background */
-                border: 1px solid rgba(255, 255, 255, 0.5); /* Glass border */
+                background:rgba(54, 68, 195, 0.084);/* Glass background */
+                border: 2px solid rgba(255, 255, 255, 0.5); /* Glass border */
                 backdrop-filter: blur(10px); /* Blur effect */
-                -webkit-backdrop-filter: blur(10px); /* Safari support */
-                border-radius: 2px; /* Rounded corners */
+                -webkit-backdrop-filter: blur(4px); /* Safari support */
+                border-radius: 1px; /* Rounded corners */
                 padding: 10px 20px; /* Button size */
                 text-align: center;
                 text-decoration: none;
@@ -252,7 +483,7 @@
                 const slides = document.querySelectorAll('.slide');
                 const backgroundSlides = document.querySelectorAll('.background-slide');
                 const indicators = document.querySelectorAll('.indicator');
-                let slideInterval = setInterval(nextSlide, 5000);
+                let slideInterval = setInterval(nextSlide, 3500);
         
                 function showSlide(n) {
                     // Remove active classes
@@ -283,7 +514,28 @@
                 });
             </script>
       
+      <h2>hello there ididot</h2>
 
+
+
+      <br>
+      <br>
+      <br>
+      
+      
+      <h2>hello there ididot</h2>
+
+
+      <h2>hello there ididot</h2>
+
+
+
+<br>
+<br>
+<br>
+
+
+<h2>hello there ididot</h2>
 </body>
 <scripts src="scripts.js"> </scripts>
 </html> 
