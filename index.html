@@ -437,7 +437,7 @@
         <BR>
                     <style>
             .glass-button {
-                background:rgba(60, 90, 145, 0.613);/* Glass background */
+                background:rgba(48, 74, 121, 0.613);/* Glass background */
                 border: 2px solid rgba(255, 255, 255, 0.5); /* Glass border */
                 backdrop-filter: blur(10px); /* Blur effect */
                 -webkit-backdrop-filter: blur(4px); /* Safari support */
@@ -514,21 +514,152 @@
                 });
             </script>
       
-      <h2 style="color:rgb(34, 40, 51);">hello there ididot</h2>
 
 
 
-      <br>
-      <br>
-      <br>
-      
+
+
+
+
+
+
+<style>
+
+    .trust {
+          
+  
+        overflow-x: hidden;
+        
+        color: white;
+    }
+
+    .marquee {
+        display: flex;
+        overflow: hidden;
+        white-space: nowrap;
+        padding: 15px 0;
+    }
+
+    .marquee-content {
+        display: flex;
+        animation: scroll 20s linear infinite;
+    }
+
+    .marquee-item {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        margin: 0 40px;
+        font-size: 17px;
+        font-weight: 600;
+        color: white;
+    }
+
+    .marquee-item img {
+        width: 65px;
+        height: 65px;
+        object-fit: cover;
+        border-radius: 8px;
+    }
+
+    @keyframes scroll {
+        0% {
+            transform: translateX(0);
+        }
+        100% {
+            transform: translateX(-50%);
+        }
+    }
+</style>
+
+
+   
+
+
+<section class="ct">
+<div class="marquee">
+    <div class="marquee-content">
+        <div class="marquee-item">
+            <img src="jaguar-icon.png" alt="">
+            <span>Jaguar</span>
+        </div>
+        <div class="marquee-item">
+            <img src="ford-icon.png" alt="">
+            <span>Ford</span>
+        </div>
+        <div class="marquee-item">
+            <img src="landr-icon.png">
+            <span>Land Rover</span>
+        </div>
+        <div class="marquee-item">
+            <img src="BMW-Logo.wine_.png" alt="">
+            <span>BMW</span>
+        </div>
+
+        <div class="marquee-item">
+            <img src="audi-icon.png" alt="">
+            <span>Audi</span>
+        </div>
+        <div class="marquee-item">
+            <img src="renault.png" alt="">
+            <span>Renault</span>
+        </div>
+        <!-- Duplicate for seamless loop -->
+        <div class="marquee-item">
+            <img src="jaguar-icon.png" alt="">
+            <span>Jaguar</span>
+        </div>
+        <div class="marquee-item">
+            <img src="ford-icon.png" alt="">
+            <span>Ford</span>
+        </div>
+        <div class="marquee-item">
+            <img src="landr-icon.png">
+            <span>Land Rover</span>
+        </div>
+        <div class="marquee-item">
+            <img src="BMW-Logo.wine_.png" alt="">
+            <span>BMW</span>
+        </div>
+
+        <div class="marquee-item">
+            <img src="audi-icon.png" alt="">
+            <span>Audi</span>
+        </div>
+        <div class="marquee-item">
+            <img src="renault.png" alt="">
+            <span>Renault</span>
+        </div>
+  
+    </div>
+</div>
+
+
+</section>
+
+
+
+    <style>
+
+.ct {
+        flex: 1;
+        min-width: 300px;
+  
+        backdrop-filter: blur(98px);
+        flex-direction: column;
      
 
+    }
 
 
-<br>
-<br>
-<br>
+
+
+</style>
+
+
+
+
+
 
 
 </body>
