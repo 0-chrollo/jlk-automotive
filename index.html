@@ -286,15 +286,21 @@
                 }
         
                 .bg-1 {
-                    background: url('ford.jpg') center/cover;
+                    background: url('jaguar.jpg') center/cover;
+                    background-repeat: no-repeat;
+                    
                 }
         
                 .bg-2 {
-                    background: url('jaguar.jpg') center/cover;
+                    background: url('ford.jpg') center/cover;
+                    background-repeat: no-repeat;
+                 
                 }
         
                 .bg-3 {
                     background: url('land-rover.jpg') center/cover;
+                    background-repeat: no-repeat;
+                    
                 }
         
     
@@ -343,7 +349,7 @@
                 }
         
                 .indicators-container {  
-                    bottom: 0;
+                
                     left: 0;
                     width: 100%;
                 }
@@ -482,7 +488,7 @@
                 const slides = document.querySelectorAll('.slide');
                 const backgroundSlides = document.querySelectorAll('.background-slide');
                 const indicators = document.querySelectorAll('.indicator');
-                let slideInterval = setInterval(nextSlide, 3500);
+                let slideInterval = setInterval(nextSlide, 4000);
         
                 function showSlide(n) {
                     // Remove active classes
