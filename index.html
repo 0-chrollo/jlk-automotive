@@ -302,8 +302,7 @@
                     background: url('land-rover.jpg') center/cover;
                 }
         
-         
-        
+    
                 .slides-container {
                     width: 100%;
                     max-width: 1200px;
@@ -657,9 +656,738 @@
     }
 
 
-
-
 </style>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<style>
+
+
+    .tool {
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+     
+        min-height: 100vh;
+        padding: 30px 30px;
+    }
+
+    .container-form {
+        max-width: 650px;
+        margin: 0 auto;
+    }
+
+    .header-form {
+        text-align: center;
+        margin-bottom: 40px;
+        color: white;
+    }
+
+    .header-icon {
+        width: 60px;
+        height: 60px;
+        margin: 0 auto 20px;
+        background: #60a5fa;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .header-form h1 {
+        font-size: 2.5rem;
+        margin-bottom: 10px;
+    }
+
+    .header-form p {
+        color: #cbd5e1;
+        font-size: 1.1rem;
+    }
+
+    .header-form .subtitle {
+        color: #94a3b8;
+        font-size: 0.9rem;
+        margin-top: 8px;
+    }
+
+    .form-card {
+        background: white;
+        border-radius: 5px;
+        box-shadow: 0 25px 50px rgba(0, 0, 0, 0.3);
+        overflow: hidden;
+        border: 4px solid #e2e8f0;
+    }
+
+    .form-header {
+        background: linear-gradient(135deg, rgb(34, 40, 51) 0%, #1e40af 100%);
+        padding: 25px;
+        color: white;
+    }
+
+    .form-header h2 {
+        font-size: 1.8rem;
+        margin-bottom: 8px;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+    }
+
+    .form-header p {
+        color: #bfdbfe;
+        font-size: 0.95rem;
+    }
+
+    .form-body {
+        padding: 40px;
+    }
+
+    .form-group {
+        margin-bottom: 24px;
+    }
+
+    .form-row {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 20px;
+    }
+
+    label {
+        display: block;
+        font-weight: 600;
+        color: #334155;
+        margin-bottom: 8px;
+        font-size: 0.95rem;
+    }
+
+    .required::after {
+        content: " *";
+        color: #dc2626;
+    }
+
+    input, select, textarea {
+        width: 100%;
+        padding: 14px 16px;
+        border: 2px solid #cbd5e1;
+        border-radius: 2px;
+        font-size: 1rem;
+        transition: all 0.3s ease;
+        font-family: inherit;
+    }
+
+    input:focus, select:focus, textarea:focus {
+        outline: none;
+        border-color: rgb(34, 40, 51);
+        box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+    }
+
+    textarea {
+        resize: none;
+    }
+
+    .submit-btn {
+        width: 100%;
+        padding: 17px;
+        background: linear-gradient(135deg, rgb(34, 40, 51) 0%, #1e40af 100%);
+        color: white;
+        border: none;
+        border-radius: 2px;
+        font-size: 1.1rem;
+        font-weight: bold;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+        box-shadow: 0 4px 15px rgba(37, 99, 235, 0.3);
+    }
+
+    .submit-btn:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 6px 20px rgba(37, 99, 235, 0.4);
+    }
+
+    .submit-btn:disabled {
+        opacity: 0.6;
+        cursor: not-allowed;
+        transform: none;
+    }
+
+    .spinner {
+        width: 20px;
+        height: 20px;
+        border: 3px solid white;
+        border-top-color: transparent;
+        border-radius: 50%;
+        animation: spin 0.8s linear infinite;
+    }
+
+    @keyframes spin {
+        to { transform: rotate(360deg); }
+    }
+
+    /* Overlay and Modal */
+    .overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: rgba(0, 0, 0, 0.6);
+        display: none;
+        align-items: center;
+        justify-content: center;
+        z-index: 1000;
+        padding: 20px;
+        animation: fadeIn 0.3s ease-out;
+    }
+
+    .overlay.active {
+        display: flex;
+    }
+
+    @keyframes fadeIn {
+        from { opacity: 0; }
+        to { opacity: 1; }
+    }
+
+    .estimate-card {
+        background:rgb(34, 40, 51);
+        border-radius: 16px;
+        max-width: 480px;
+        width: 100%;
+        box-shadow: 0 25px 50px rgba(0, 0, 0, 0.5);
+        position: relative;
+        border: 3px solid rgb(34, 40, 51);
+        animation: slideUp 0.4s ease-out;
+    }
+
+    @keyframes slideUp {
+        from {
+            opacity: 0;
+            transform: translateY(30px) scale(0.95);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0) scale(1);
+        }
+    }
+
+    .close-btn {
+        position: absolute;
+        top: -16px;
+        right: -16px;
+        width: 40px;
+        height: 40px;
+        background: #dc2626;
+        border: none;
+        border-radius: 50%;
+        color: white;
+        font-size: 1.5rem;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        box-shadow: 0 4px 12px rgba(220, 38, 38, 0.4);
+        transition: all 0.3s ease;
+        z-index: 10;
+    }
+
+    .close-btn:hover {
+        background: #b91c1c;
+        transform: scale(1.1);
+    }
+
+    .estimate-header {
+        background: rgb(52, 62, 80);
+        padding: 20px 24px;
+        border-radius: 13px 13px 0 0;
+        color: white;
+    }
+
+    .estimate-header h3 {
+        font-size: 1.4rem;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+    }
+
+    .estimate-body {
+        padding: 20px;
+    }
+
+    .detail-row {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding-bottom: 12px;
+        margin-bottom: 12px;
+        border-bottom: 2px solid #dcfce7;
+    }
+
+    .detail-label {
+        font-weight: 600;
+        color: #ffffff;
+        font-size: 0.9rem;
+    }
+
+    .detail-value {
+        font-weight: bold;
+        color: #ffffff;
+        text-align: right;
+        font-size: 0.9rem;
+    }
+
+    .price-box {
+        background: linear-gradient(135deg, rgb(58, 68, 88) 0%, rgb(27, 40, 63) 100%);
+        border-radius: 2px;
+        padding: 20px;
+        margin-top: 16px;
+        border: 2px solid rgb(34, 40, 51);
+        box-shadow: inset 0 2px 8px rgba(34, 197, 94, 0.1);
+    }
+
+    .price-box .title {
+        text-align: center;
+        font-weight: 600;
+        color: #ffffff;
+        font-size: 0.9rem;
+        margin-bottom: 10px;
+    }
+
+    .price-display {
+        background: rgb(34, 40, 51);
+        border-radius: 10px;
+        padding: 14px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        text-align: center;
+    }
+
+    .price-amount {
+        font-size: 1.6rem;
+        font-weight: bold;
+        color:rgb(255, 255, 255);
+        margin: 4px 0;
+    }
+
+    .price-separator {
+        font-size: 0.9rem;
+        color: #ffffff;
+        font-weight: 600;
+        margin: 3px 0;
+    }
+
+    .price-note {
+        color: #ffffff;
+        font-size: 0.75rem;
+        margin-top: 10px;
+        font-style: italic;
+    }
+
+    .action-buttons {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 12px;
+        margin-top: 20px;
+    }
+
+    .btn-secondary {
+        padding: 12px;
+        background: rgb(34, 40, 51);
+        border: none;
+        border-radius: 8px;
+        font-weight: bold;
+        font-size: 0.9rem;
+        color: #ffffff;
+        cursor: pointer;
+        transition: all 0.3s ease;
+    }
+
+    .btn-secondary:hover {
+        background: #cbd5e1;
+        transform: scale(1.05);
+    }
+
+    .btn-whatsapp {
+        padding: 12px;
+        background: linear-gradient(135deg, #16a34a 0%, #15803d 100%);
+        border: none;
+        border-radius: 8px;
+        font-weight: bold;
+        font-size: 0.9rem;
+        color: white;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        text-decoration: none;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 6px;
+    }
+
+    .btn-whatsapp:hover {
+        background: linear-gradient(135deg, rgb(34, 40, 51) 0%, #166534 100%);
+        transform: scale(1.05);
+    }
+
+    .footer {
+        text-align: center;
+        color: #cbd5e1;
+        font-size: 0.85rem;
+        margin-top: 40px;
+        line-height: 1.8;
+    }
+
+    @media (max-width: 640px) {
+        .form-row {
+            grid-template-columns: 1fr;
+        }
+
+        .header h1 {
+            font-size: 2rem;
+        }
+
+        .price-amount {
+            font-size: 1.4rem;
+        }
+
+        .form-body {
+            padding: 24px;
+        }
+
+        .estimate-body {
+            padding: 16px;
+        }
+    }
+</style>
+<section class="tool">
+<div class="container-form">
+    <!-- Header -->
+    <div class="header-form">
+
+        <h1>JLF Automotive</h1>
+        <p>Instant Service Cost Estimate</p>
+        <p class="subtitle">Jaguar, Land Rover & Ford Specialists</p>
+    </div>
+
+    <!-- Form Card -->
+    <div class="form-card">
+        <div class="form-header">
+            <h2>
+                <svg width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M18.92 6.01C18.72 5.42 18.16 5 17.5 5h-11c-.66 0-1.21.42-1.42 1.01L3 12v8c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-1h12v1c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-8l-2.08-5.99zM6.5 16c-.83 0-1.5-.67-1.5-1.5S5.67 13 6.5 13s1.5.67 1.5 1.5S7.33 16 6.5 16zm11 0c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5zM5 11l1.5-4.5h11L19 11H5z"/>
+                </svg>
+                Get Your Free Estimate
+            </h2>
+            <p>Fill in your details below for an instant quote</p>
+        </div>
+
+        <div class="form-body">
+            <form id="estimateForm">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label class="required">First Name</label>
+                        <input type="text" id="firstName" required placeholder="John">
+                    </div>
+                    <div class="form-group">
+                        <label class="required">Surname</label>
+                        <input type="text" id="surname" required placeholder="Doe">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="required">Phone Number</label>
+                    <input type="tel" id="phone" required placeholder="081 498 9055">
+                </div>
+
+                <div class="form-group">
+                    <label>Email Address (Optional)</label>
+                    <input type="email" id="email" placeholder="john@example.com">
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label class="required">Vehicle Model</label>
+                        <select id="vehicle" required>
+                            <option value="">Select Vehicle</option>
+                            <option value="Jaguar F-Pace">Jaguar F-Pace</option>
+                            <option value="Jaguar XE">Jaguar XE</option>
+                            <option value="Jaguar XF">Jaguar XF</option>
+                            <option value="Jaguar F-Type">Jaguar F-Type</option>
+                            <option value="Land Rover Discovery">Land Rover Discovery</option>
+                            <option value="Land Rover Range Rover">Land Rover Range Rover</option>
+                            <option value="Land Rover Range Rover Sport">Land Rover Range Rover Sport</option>
+                            <option value="Land Rover Defender">Land Rover Defender</option>
+                            <option value="Ford Ranger">Ford Ranger</option>
+                            <option value="Ford EcoSport">Ford EcoSport</option>
+                            <option value="Ford Kuga">Ford Kuga</option>
+                            <option value="Ford Fiesta">Ford Fiesta</option>
+                            <option value="Ford Focus">Ford Focus</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label class="required">Year</label>
+                        <select id="year" required>
+                            <option value="">Select Year</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="required">Service Required</label>
+                    <select id="service" required>
+                        <option value="">Select a Service</option>
+                        <option value="Oil Change & Filter">Oil Change & Filter</option>
+                        <option value="Brake Service (Front)">Brake Service (Front)</option>
+                        <option value="Brake Service (Rear)">Brake Service (Rear)</option>
+                        <option value="Full Service (30k)">Full Service (30k)</option>
+                        <option value="Major Service (60k)">Major Service (60k)</option>
+                        <option value="Major Service (90k)">Major Service (90k)</option>
+                        <option value="Coolant System Service">Coolant System Service</option>
+                        <option value="A/C Service & Regas">A/C Service & Regas</option>
+                        <option value="Transmission Service">Transmission Service</option>
+                        <option value="Suspension Check & Repair">Suspension Check & Repair</option>
+                        <option value="Engine Diagnostics">Engine Diagnostics</option>
+                        <option value="EcoBoost Engine Rebuild">EcoBoost Engine Rebuild</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label>Current Mileage (km)</label>
+                    <input type="number" id="mileage" placeholder="e.g. 85000">
+                </div>
+
+                <div class="form-group">
+                    <label>Additional Details (Optional)</label>
+                    <textarea id="details" rows="3" placeholder="Any specific issues or requirements..."></textarea>
+                </div>
+
+                <button type="submit" class="submit-btn" id="submitBtn">
+                    <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M11.8 10.9c-2.27-.59-3-1.2-3-2.15 0-1.09 1.01-1.85 2.7-1.85 1.78 0 2.44.85 2.5 2.1h2.21c-.07-1.72-1.12-3.3-3.21-3.81V3h-3v2.16c-1.94.42-3.5 1.68-3.5 3.61 0 2.31 1.91 3.46 4.7 4.13 2.5.6 3 1.48 3 2.41 0 .69-.49 1.79-2.7 1.79-2.06 0-2.87-.92-2.98-2.1h-2.2c.12 2.19 1.76 3.42 3.68 3.83V21h3v-2.15c1.95-.37 3.5-1.5 3.5-3.55 0-2.84-2.43-3.81-4.7-4.4z"/>
+                    </svg>
+                    <span>Get Instant Estimate</span>
+                </button>
+            </form>
+        </div>
+    </div>
+
+
+</div>
+
+<!-- Estimate Overlay -->
+<div class="overlay" id="overlay">
+    <div class="estimate-card">
+        <button class="close-btn" id="closeBtn">×</button>
+        
+        <div class="estimate-header">
+            <h3>
+                <svg width="28" height="28" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+                </svg>
+                Your Estimate is Ready!
+            </h3>
+        </div>
+
+        <div class="estimate-body">
+            <div class="detail-row">
+                <span class="detail-label">Vehicle:</span>
+                <span class="detail-value" id="resultVehicle"></span>
+            </div>
+
+            <div class="detail-row">
+                <span class="detail-label">Service:</span>
+                <span class="detail-value" id="resultService"></span>
+            </div>
+
+            <div class="detail-row">
+                <span class="detail-label">Estimated Time:</span>
+                <span class="detail-value" id="resultTime"></span>
+            </div>
+
+            <div class="price-box">
+                <div class="title">Estimated Cost Range</div>
+                <div class="price-display">
+                    <div class="price-amount" id="minPrice"></div>
+                    <div class="price-separator">to</div>
+                    <div class="price-amount" id="maxPrice"></div>
+                </div>
+                <div class="price-note">*Final price confirmed after inspection</div>
+            </div>
+
+            <div class="action-buttons">
+                <button class="btn-secondary" id="newEstimateBtn">New Estimate</button>
+                <a href="#" class="btn-whatsapp" id="whatsappBtn" target="_blank">
+                    <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.890-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/>
+                    </svg>
+                    Book Now
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    // Service pricing data
+    const services = {
+        'Oil Change & Filter': { basePrice: 1200, labor: 500, time: '2-4 hours' },
+        'Brake Service (Front)': { basePrice: 3500, labor: 1500, time: '2-4 hours' },
+        'Brake Service (Rear)': { basePrice: 3200, labor: 1300, time: '2-4 hours' },
+        'Full Service (30k)': { basePrice: 4500, labor: 2000, time: '2-4 hours' },
+        'Major Service (60k)': { basePrice: 7500, labor: 3500, time: '1-2 days' },
+        'Major Service (90k)': { basePrice: 9500, labor: 4500, time: '1-2 days' },
+        'Coolant System Service': { basePrice: 2800, labor: 1200, time: '2-4 hours' },
+        'A/C Service & Regas': { basePrice: 1800, labor: 800, time: '2-4 hours' },
+        'Transmission Service': { basePrice: 5500, labor: 2500, time: '1-2 days' },
+        'Suspension Check & Repair': { basePrice: 4000, labor: 2000, time: '2-4 hours' },
+        'Engine Diagnostics': { basePrice: 500, labor: 500, time: '2-4 hours' },
+        'EcoBoost Engine Rebuild': { basePrice: 25000, labor: 8000, time: '5-7 days' }
+    };
+
+    // Populate year dropdown
+    const yearSelect = document.getElementById('year');
+    for (let i = 2024; i >= 2000; i--) {
+        const option = document.createElement('option');
+        option.value = i;
+        option.textContent = i;
+        yearSelect.appendChild(option);
+    }
+
+    // Form submission
+    document.getElementById('estimateForm').addEventListener('submit', function(e) {
+        e.preventDefault();
+        
+        const submitBtn = document.getElementById('submitBtn');
+        submitBtn.disabled = true;
+        submitBtn.innerHTML = '<div class="spinner"></div><span>Calculating Estimate...</span>';
+
+        // Simulate calculation delay
+        setTimeout(() => {
+            calculateEstimate();
+            submitBtn.disabled = false;
+            submitBtn.innerHTML = `
+                <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M11.8 10.9c-2.27-.59-3-1.2-3-2.15 0-1.09 1.01-1.85 2.7-1.85 1.78 0 2.44.85 2.5 2.1h2.21c-.07-1.72-1.12-3.3-3.21-3.81V3h-3v2.16c-1.94.42-3.5 1.68-3.5 3.61 0 2.31 1.91 3.46 4.7 4.13 2.5.6 3 1.48 3 2.41 0 .69-.49 1.79-2.7 1.79-2.06 0-2.87-.92-2.98-2.1h-2.2c.12 2.19 1.76 3.42 3.68 3.83V21h3v-2.15c1.95-.37 3.5-1.5 3.5-3.55 0-2.84-2.43-3.81-4.7-4.4z"/>
+                </svg>
+                <span>Get Instant Estimate</span>
+            `;
+        }, 2000);
+    });
+
+    function calculateEstimate() {
+        const vehicle = document.getElementById('vehicle').value;
+        const year = document.getElementById('year').value;
+        const serviceName = document.getElementById('service').value;
+        
+        const serviceData = services[serviceName];
+        let multiplier = 1;
+
+        // Luxury brand markup
+        if (vehicle.includes('Jaguar') || vehicle.includes('Range Rover')) {
+            multiplier = 1.3;
+        } else if (vehicle.includes('Land Rover')) {
+            multiplier = 1.2;
+        }
+
+        // Age markup
+        const vehicleAge = 2024 - parseInt(year);
+        if (vehicleAge > 10) {
+            multiplier += 0.15;
+        }
+
+        const baseTotal = (serviceData.basePrice + serviceData.labor) * multiplier;
+        const minPrice = Math.floor(baseTotal * 0.9);
+        const maxPrice = Math.ceil(baseTotal * 1.1);
+
+        // Display results
+        document.getElementById('resultVehicle').textContent = `${year} ${vehicle}`;
+        document.getElementById('resultService').textContent = serviceName;
+        document.getElementById('resultTime').textContent = serviceData.time;
+        document.getElementById('minPrice').textContent = `R${minPrice.toLocaleString()}`;
+        document.getElementById('maxPrice').textContent = `R${maxPrice.toLocaleString()}`;
+
+        // WhatsApp link
+        const message = `Hi JLF Automotive, I got an estimate for ${serviceName} on my ${year} ${vehicle} (R${minPrice.toLocaleString()}-R${maxPrice.toLocaleString()}). I'd like to book a service.`;
+        document.getElementById('whatsappBtn').href = `https://wa.me/27814989055?text=${encodeURIComponent(message)}`;
+
+        // Show overlay
+        document.getElementById('overlay').classList.add('active');
+    }
+
+   // Close buttons
+document.getElementById('closeBtn').addEventListener('click', function() {
+document.getElementById('overlay').classList.remove('active');
+});
+
+document.getElementById('newEstimateBtn').addEventListener('click', function() {
+document.getElementById('overlay').classList.remove('active');
+document.getElementById('estimateForm').reset();
+});
+
+// Close overlay when clicking outside the card
+document.getElementById('overlay').addEventListener('click', function(e) {
+if (e.target === this) {
+    this.classList.remove('active');
+}
+});
+</script>
+</section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
